@@ -1,0 +1,1 @@
+/usr/local/arm/5.4.0/usr//bin/arm-linux-gcc -g CMakeFiles/main.dir/main.c.o CMakeFiles/main.dir/mouse_cursor_icon.c.o -o main  lib/liblvgl.a lvgl/liblvgl_examples.a lvgl/liblvgl_demos.a lib/liblv_drivers.a lib/liblvgl.a 
