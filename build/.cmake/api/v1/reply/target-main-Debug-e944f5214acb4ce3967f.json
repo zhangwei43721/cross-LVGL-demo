@@ -2,7 +2,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "main"
+			"path" : "bin/main"
 		}
 	],
 	"backtrace" : 1,
@@ -12,7 +12,8 @@
 		[
 			"add_executable",
 			"target_link_libraries",
-			"include_directories"
+			"include_directories",
+			"target_include_directories"
 		],
 		"files" : 
 		[
@@ -26,19 +27,31 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 16,
+				"line" : 15,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 17,
+				"line" : 18,
+				"parent" : 0
+			},
+			{
+				"command" : 1,
+				"file" : 0,
+				"line" : 35,
 				"parent" : 0
 			},
 			{
 				"command" : 2,
 				"file" : 0,
-				"line" : 5,
+				"line" : 7,
+				"parent" : 0
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 32,
 				"parent" : 0
 			}
 		]
@@ -66,8 +79,13 @@
 			"includes" : 
 			[
 				{
-					"backtrace" : 3,
+					"backtrace" : 4,
 					"path" : "/media/skyforever/Data/\u5b66\u4e60\uff08\u540c\u6b65\uff09/\u5b9e\u8bad/test/lv_port_linux/."
+				},
+				{
+					"backtrace" : 5,
+					"isSystem" : true,
+					"path" : "/usr/include/SDL2"
 				},
 				{
 					"backtrace" : 2,
@@ -148,6 +166,11 @@
 			{
 				"backtrace" : 2,
 				"fragment" : "lib/liblv_drivers.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libSDL2.so",
 				"role" : "libraries"
 			},
 			{

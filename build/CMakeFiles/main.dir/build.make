@@ -73,29 +73,29 @@ CMakeFiles/main.dir/main.c.o: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/main.c.o: /media/skyforever/Data/学习（同步）/实训/test/lv_port_linux/main.c
 CMakeFiles/main.dir/main.c.o: CMakeFiles/main.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/media/skyforever/Data/学习（同步）/实训/test/lv_port_linux/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/main.dir/main.c.o"
-	/usr/local/arm/5.4.0/usr//bin/arm-linux-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main.dir/main.c.o -MF CMakeFiles/main.dir/main.c.o.d -o CMakeFiles/main.dir/main.c.o -c /media/skyforever/Data/学习（同步）/实训/test/lv_port_linux/main.c
+	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main.dir/main.c.o -MF CMakeFiles/main.dir/main.c.o.d -o CMakeFiles/main.dir/main.c.o -c /media/skyforever/Data/学习（同步）/实训/test/lv_port_linux/main.c
 
 CMakeFiles/main.dir/main.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/main.dir/main.c.i"
-	/usr/local/arm/5.4.0/usr//bin/arm-linux-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /media/skyforever/Data/学习（同步）/实训/test/lv_port_linux/main.c > CMakeFiles/main.dir/main.c.i
+	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /media/skyforever/Data/学习（同步）/实训/test/lv_port_linux/main.c > CMakeFiles/main.dir/main.c.i
 
 CMakeFiles/main.dir/main.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/main.dir/main.c.s"
-	/usr/local/arm/5.4.0/usr//bin/arm-linux-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /media/skyforever/Data/学习（同步）/实训/test/lv_port_linux/main.c -o CMakeFiles/main.dir/main.c.s
+	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /media/skyforever/Data/学习（同步）/实训/test/lv_port_linux/main.c -o CMakeFiles/main.dir/main.c.s
 
 CMakeFiles/main.dir/mouse_cursor_icon.c.o: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/mouse_cursor_icon.c.o: /media/skyforever/Data/学习（同步）/实训/test/lv_port_linux/mouse_cursor_icon.c
 CMakeFiles/main.dir/mouse_cursor_icon.c.o: CMakeFiles/main.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/media/skyforever/Data/学习（同步）/实训/test/lv_port_linux/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/main.dir/mouse_cursor_icon.c.o"
-	/usr/local/arm/5.4.0/usr//bin/arm-linux-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main.dir/mouse_cursor_icon.c.o -MF CMakeFiles/main.dir/mouse_cursor_icon.c.o.d -o CMakeFiles/main.dir/mouse_cursor_icon.c.o -c /media/skyforever/Data/学习（同步）/实训/test/lv_port_linux/mouse_cursor_icon.c
+	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/main.dir/mouse_cursor_icon.c.o -MF CMakeFiles/main.dir/mouse_cursor_icon.c.o.d -o CMakeFiles/main.dir/mouse_cursor_icon.c.o -c /media/skyforever/Data/学习（同步）/实训/test/lv_port_linux/mouse_cursor_icon.c
 
 CMakeFiles/main.dir/mouse_cursor_icon.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/main.dir/mouse_cursor_icon.c.i"
-	/usr/local/arm/5.4.0/usr//bin/arm-linux-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /media/skyforever/Data/学习（同步）/实训/test/lv_port_linux/mouse_cursor_icon.c > CMakeFiles/main.dir/mouse_cursor_icon.c.i
+	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /media/skyforever/Data/学习（同步）/实训/test/lv_port_linux/mouse_cursor_icon.c > CMakeFiles/main.dir/mouse_cursor_icon.c.i
 
 CMakeFiles/main.dir/mouse_cursor_icon.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/main.dir/mouse_cursor_icon.c.s"
-	/usr/local/arm/5.4.0/usr//bin/arm-linux-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /media/skyforever/Data/学习（同步）/实训/test/lv_port_linux/mouse_cursor_icon.c -o CMakeFiles/main.dir/mouse_cursor_icon.c.s
+	/usr/bin/gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /media/skyforever/Data/学习（同步）/实训/test/lv_port_linux/mouse_cursor_icon.c -o CMakeFiles/main.dir/mouse_cursor_icon.c.s
 
 # Object files for target main
 main_OBJECTS = \
@@ -105,20 +105,21 @@ main_OBJECTS = \
 # External object files for target main
 main_EXTERNAL_OBJECTS =
 
-main: CMakeFiles/main.dir/main.c.o
-main: CMakeFiles/main.dir/mouse_cursor_icon.c.o
-main: CMakeFiles/main.dir/build.make
-main: lib/liblvgl.a
-main: lvgl/liblvgl_examples.a
-main: lvgl/liblvgl_demos.a
-main: lib/liblv_drivers.a
-main: lib/liblvgl.a
-main: CMakeFiles/main.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/media/skyforever/Data/学习（同步）/实训/test/lv_port_linux/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking C executable main"
+bin/main: CMakeFiles/main.dir/main.c.o
+bin/main: CMakeFiles/main.dir/mouse_cursor_icon.c.o
+bin/main: CMakeFiles/main.dir/build.make
+bin/main: lib/liblvgl.a
+bin/main: lvgl/liblvgl_examples.a
+bin/main: lvgl/liblvgl_demos.a
+bin/main: lib/liblv_drivers.a
+bin/main: /usr/lib/x86_64-linux-gnu/libSDL2.so
+bin/main: lib/liblvgl.a
+bin/main: CMakeFiles/main.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/media/skyforever/Data/学习（同步）/实训/test/lv_port_linux/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking C executable bin/main"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/main.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-CMakeFiles/main.dir/build: main
+CMakeFiles/main.dir/build: bin/main
 .PHONY : CMakeFiles/main.dir/build
 
 CMakeFiles/main.dir/clean:

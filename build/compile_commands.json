@@ -1,13 +1,13 @@
 [
 {
   "directory": "/media/skyforever/Data/学习（同步）/实训/test/lv_port_linux/build",
-  "command": "/usr/local/arm/5.4.0/usr//bin/arm-linux-gcc -DLV_CONF_INCLUDE_SIMPLE -DLV_LVGL_H_INCLUDE_SIMPLE -I/media/skyforever/Data/学习（同步）/实训/test/lv_port_linux/. -isystem /media/skyforever/Data/学习（同步）/实训/test/lv_port_linux/lvgl -isystem /media/skyforever/Data/学习（同步）/实训/test/lv_port_linux/lvgl/examples -isystem /media/skyforever/Data/学习（同步）/实训/test/lv_port_linux/lvgl/demos -isystem /media/skyforever/Data/学习（同步）/实训/test/lv_port_linux/lv_drivers -g -o CMakeFiles/main.dir/main.c.o -c /media/skyforever/Data/学习（同步）/实训/test/lv_port_linux/main.c",
+  "command": "/usr/bin/gcc -DLV_CONF_INCLUDE_SIMPLE -DLV_LVGL_H_INCLUDE_SIMPLE -I/media/skyforever/Data/学习（同步）/实训/test/lv_port_linux/. -isystem /usr/include/SDL2 -isystem /media/skyforever/Data/学习（同步）/实训/test/lv_port_linux/lvgl -isystem /media/skyforever/Data/学习（同步）/实训/test/lv_port_linux/lvgl/examples -isystem /media/skyforever/Data/学习（同步）/实训/test/lv_port_linux/lvgl/demos -isystem /media/skyforever/Data/学习（同步）/实训/test/lv_port_linux/lv_drivers -g -o CMakeFiles/main.dir/main.c.o -c /media/skyforever/Data/学习（同步）/实训/test/lv_port_linux/main.c",
   "file": "/media/skyforever/Data/学习（同步）/实训/test/lv_port_linux/main.c",
   "output": "CMakeFiles/main.dir/main.c.o"
 },
 {
   "directory": "/media/skyforever/Data/学习（同步）/实训/test/lv_port_linux/build",
-  "command": "/usr/local/arm/5.4.0/usr//bin/arm-linux-gcc -DLV_CONF_INCLUDE_SIMPLE -DLV_LVGL_H_INCLUDE_SIMPLE -I/media/skyforever/Data/学习（同步）/实训/test/lv_port_linux/. -isystem /media/skyforever/Data/学习（同步）/实训/test/lv_port_linux/lvgl -isystem /media/skyforever/Data/学习（同步）/实训/test/lv_port_linux/lvgl/examples -isystem /media/skyforever/Data/学习（同步）/实训/test/lv_port_linux/lvgl/demos -isystem /media/skyforever/Data/学习（同步）/实训/test/lv_port_linux/lv_drivers -g -o CMakeFiles/main.dir/mouse_cursor_icon.c.o -c /media/skyforever/Data/学习（同步）/实训/test/lv_port_linux/mouse_cursor_icon.c",
+  "command": "/usr/bin/gcc -DLV_CONF_INCLUDE_SIMPLE -DLV_LVGL_H_INCLUDE_SIMPLE -I/media/skyforever/Data/学习（同步）/实训/test/lv_port_linux/. -isystem /usr/include/SDL2 -isystem /media/skyforever/Data/学习（同步）/实训/test/lv_port_linux/lvgl -isystem /media/skyforever/Data/学习（同步）/实训/test/lv_port_linux/lvgl/examples -isystem /media/skyforever/Data/学习（同步）/实训/test/lv_port_linux/lvgl/demos -isystem /media/skyforever/Data/学习（同步）/实训/test/lv_port_linux/lv_drivers -g -o CMakeFiles/main.dir/mouse_cursor_icon.c.o -c /media/skyforever/Data/学习（同步）/实训/test/lv_port_linux/mouse_cursor_icon.c",
   "file": "/media/skyforever/Data/学习（同步）/实训/test/lv_port_linux/mouse_cursor_icon.c",
   "output": "CMakeFiles/main.dir/mouse_cursor_icon.c.o"
 },

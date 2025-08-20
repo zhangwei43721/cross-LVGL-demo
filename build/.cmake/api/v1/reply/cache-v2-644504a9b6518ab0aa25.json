@@ -606,6 +606,18 @@
 			"value" : ""
 		},
 		{
+			"name" : "CMAKE_HAVE_LIBC_PTHREAD",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Test CMAKE_HAVE_LIBC_PTHREAD"
+				}
+			],
+			"type" : "INTERNAL",
+			"value" : "1"
+		},
+		{
 			"name" : "CMAKE_HOME_DIRECTORY",
 			"properties" : 
 			[
@@ -1158,6 +1170,18 @@
 			"value" : "FALSE"
 		},
 		{
+			"name" : "FIND_PACKAGE_MESSAGE_DETAILS_Threads",
+			"properties" : 
+			[
+				{
+					"name" : "HELPSTRING",
+					"value" : "Details about finding Threads"
+				}
+			],
+			"type" : "INTERNAL",
+			"value" : "[TRUE][v()]"
+		},
+		{
 			"name" : "LV_CONF_INCLUDE_SIMPLE",
 			"properties" : 
 			[
@@ -1204,30 +1228,6 @@
 			],
 			"type" : "PATH",
 			"value" : "/usr/lib/x86_64-linux-gnu/cmake/SDL2"
-		},
-		{
-			"name" : "SDL2_image_DIR",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "The directory containing a CMake configuration file for SDL2_image."
-				}
-			],
-			"type" : "PATH",
-			"value" : "/usr/lib/x86_64-linux-gnu/cmake/SDL2_image"
-		},
-		{
-			"name" : "TOOLCHAIN_DIR",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "Toolchain directory"
-				}
-			],
-			"type" : "PATH",
-			"value" : "/usr/local/arm/5.4.0/usr"
 		},
 		{
 			"name" : "_CMAKE_LINKER_PUSHPOP_STATE_SUPPORTED",

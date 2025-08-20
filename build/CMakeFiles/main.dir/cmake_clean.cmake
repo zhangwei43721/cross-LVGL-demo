@@ -3,8 +3,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/main.dir/main.c.o.d"
   "CMakeFiles/main.dir/mouse_cursor_icon.c.o"
   "CMakeFiles/main.dir/mouse_cursor_icon.c.o.d"
-  "main"
-  "main.pdb"
+  "bin/main"
+  "bin/main.pdb"
 )
 
 # Per-language clean rules from dependency scanning.

@@ -226,12 +226,6 @@ LV_LVGL_H_INCLUDE_SIMPLE:BOOL=ON
 //The directory containing a CMake configuration file for SDL2.
 SDL2_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/SDL2
 
-//The directory containing a CMake configuration file for SDL2_image.
-SDL2_image_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/SDL2_image
-
-//Toolchain directory
-TOOLCHAIN_DIR:PATH=/usr/local/arm/5.4.0/usr
-
 //Value Computed by CMake
 lv_drivers_BINARY_DIR:STATIC=/media/skyforever/Data/学习（同步）/实训/test/lv_port_linux/build/lv_drivers
 
@@ -342,6 +336,8 @@ CMAKE_GENERATOR_INSTANCE:INTERNAL=
 CMAKE_GENERATOR_PLATFORM:INTERNAL=
 //Name of generator toolset.
 CMAKE_GENERATOR_TOOLSET:INTERNAL=
+//Test CMAKE_HAVE_LIBC_PTHREAD
+CMAKE_HAVE_LIBC_PTHREAD:INTERNAL=1
 //Source directory with the top level CMakeLists.txt file for this
 // project
 CMAKE_HOME_DIRECTORY:INTERNAL=/media/skyforever/Data/学习（同步）/实训/test/lv_port_linux
@@ -409,6 +405,8 @@ CMAKE_TAPI-ADVANCED:INTERNAL=1
 CMAKE_UNAME:INTERNAL=/usr/bin/uname
 //ADVANCED property for variable: CMAKE_VERBOSE_MAKEFILE
 CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
+//Details about finding Threads
+FIND_PACKAGE_MESSAGE_DETAILS_Threads:INTERNAL=[TRUE][v()]
 //linker supports push/pop state
 _CMAKE_LINKER_PUSHPOP_STATE_SUPPORTED:INTERNAL=TRUE
 

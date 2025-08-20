@@ -33,7 +33,7 @@
 						"gcc_s"
 					]
 				},
-				"path" : "/usr/local/arm/5.4.0/usr//bin/arm-linux-gcc",
+				"path" : "/usr/bin/gcc",
 				"version" : "13.3.0"
 			},
 			"language" : "C",
@@ -79,7 +79,7 @@
 						"gcc"
 					]
 				},
-				"path" : "/usr/local/arm/5.4.0/usr//bin/arm-linux-g++",
+				"path" : "/usr/bin/g++",
 				"version" : "13.3.0"
 			},
 			"language" : "CXX",
