@@ -19,9 +19,7 @@ else()
     set(PLATFORM_LIBS ${SDL2_LIBRARIES} Threads::Threads) # PC平台链接SDL2和pthreads
 endif()
 
-# --- 自动执行配置脚本 ---
-# 根据检测到的 TARGET_ARCH，运行脚本来修改 lv_drv_conf.h
-# 这是配置的唯一来源
+# 运行脚本来修改 lv_drv_conf.h
 execute_process(
     COMMAND bash ${CMAKE_CURRENT_SOURCE_DIR}/configure.sh ${TARGET_ARCH}
     WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
@@ -38,9 +36,9 @@ add_subdirectory(lv_drivers)
 
 
 # --- 构建主程序 ---
-add_executable(${PROJECT_NAME} main.c mouse_cursor_icon.c)
+add_executable(${PROJECT_NAME} main.c mouse_cursor_icon.c  obj/myexample.c)
 
-# 链接所有需要的库
+# 链接需要的库
 target_link_libraries(${PROJECT_NAME} PRIVATE
     lvgl
     lvgl::drivers
