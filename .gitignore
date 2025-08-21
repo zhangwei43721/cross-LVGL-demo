@@ -6,6 +6,8 @@
 *.ko
 *.obj
 *.elf
+/build/
+/bin/
 
 # Linker output
 *.ilk
@@ -51,4 +53,3 @@ Module.symvers
 Mkfile.old
 dkms.conf
 /Debug/
-build/*

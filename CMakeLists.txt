@@ -1,36 +1,60 @@
 cmake_minimum_required(VERSION 3.10)
-project(main LANGUAGES C CXX)
+project(main C)
 
-message(STATUS "交叉编译工具状态 ${CMAKE_CROSSCOMPILING}")
+# --- 基本设置 ---
+set(CMAKE_C_STANDARD 99)
+set(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/bin)
+include_directories(.) # 包含根目录以找到 lv_conf.h 和 lv_drv_conf.h
 
-# --- 头文件和子目录 ---
-include_directories(.)
+# --- 平台检测与配置 ---
+if(CMAKE_CROSSCOMPILING AND (CMAKE_SYSTEM_PROCESSOR MATCHES "arm|aarch64"))
+    message(STATUS "目标架构: ARM (交叉编译)")
+    set(TARGET_ARCH "arm")
+    set(PLATFORM_LIBS pthread) # ARM平台链接pthread
+else()
+    message(STATUS "目标架构: PC (本地编译)")
+    set(TARGET_ARCH "pc")
+    find_package(SDL2 REQUIRED)
+    find_package(Threads REQUIRED)
+    set(PLATFORM_LIBS ${SDL2_LIBRARIES} Threads::Threads) # PC平台链接SDL2和pthreads
+endif()
+
+# --- 自动执行配置脚本 ---
+# 根据检测到的 TARGET_ARCH，运行脚本来修改 lv_drv_conf.h
+# 这是配置的唯一来源
+execute_process(
+    COMMAND bash ${CMAKE_CURRENT_SOURCE_DIR}/configure.sh ${TARGET_ARCH}
+    WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
+    RESULT_VARIABLE script_result
+)
+if(NOT script_result EQUAL 0)
+    message(FATAL_ERROR "为 ${TARGET_ARCH} 配置 lv_drv_conf.h 失败")
+endif()
+
+
+# --- 添加子目录 ---
 add_subdirectory(lvgl)
 add_subdirectory(lv_drivers)
 
-# --- 输出路径 ---
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}/bin)
 
-# --- 可执行文件定义 ---
+# --- 构建主程序 ---
 add_executable(${PROJECT_NAME} main.c mouse_cursor_icon.c)
 
-# --- 链接 LVGL 核心库 (所有平台都需要) ---
-target_link_libraries(${PROJECT_NAME} PRIVATE lvgl lvgl::examples lvgl::demos lvgl::drivers)
+# 链接所有需要的库
+target_link_libraries(${PROJECT_NAME} PRIVATE
+    lvgl
+    lvgl::drivers
+    lvgl::demos      # 链接 LVGL 的 demos 库
+    # lvgl::examples   # 链接 LVGL 的 examples 库
+    ${PLATFORM_LIBS} # 链接平台特定的库
+    m                # 链接数学库
+)
 
-if(NOT CMAKE_CROSSCOMPILING)
-    # 1. 查找桌面环境需要的库
-    find_package(SDL2 REQUIRED)
-    find_package(Threads REQUIRED)
+# --- 为VSCode创建一个运行目标 ---
+add_custom_target(run
+    COMMAND ${EXECUTABLE_OUTPUT_PATH}/${PROJECT_NAME}
+    DEPENDS ${PROJECT_NAME}
+    WORKING_DIRECTORY ${PROJECT_BINARY_DIR}
+)
 
-    # 2. 添加头文件路径
-    target_include_directories(${PROJECT_NAME} PRIVATE ${SDL2_INCLUDE_DIRS})
-    
-    # 3. 链接这些库
-    target_link_libraries(${PROJECT_NAME} PRIVATE ${SDL2_LIBRARIES} Threads::Threads)
-    
-    # 4. 打印消息，方便调试
-    message(STATUS "Native build detected. Linking against SDL2 and pthreads.")
-else()
-    # 这段代码块只在“交叉编译”时执行
-    message(STATUS "Cross-compilation detected for ARM. Skipping SDL2.")
-endif()
+message(STATUS "项目配置完成! 目标平台: ${TARGET_ARCH}")
