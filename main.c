@@ -59,7 +59,7 @@ int main(int argc, char **argv)
     hal_init();
 
     /* === 调用 UI 代码 === */
-    obj_pos();
+    obj_pos1();
 
     /* 主循环 */
     while(1) {
