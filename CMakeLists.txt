@@ -17,13 +17,7 @@ add_executable(${PROJECT_NAME} main.c mouse_cursor_icon.c)
 # --- 链接 LVGL 核心库 (所有平台都需要) ---
 target_link_libraries(${PROJECT_NAME} PRIVATE lvgl lvgl::examples lvgl::demos lvgl::drivers)
 
-# --- 平台相关的链接 ---
-# CMAKE_CROSSCOMPILING 是一个内置变量。
-# 当使用 arm-linux-gcc 时，它为 TRUE。
-# 当使用本地 gcc 时，它为 FALSE。
 if(NOT CMAKE_CROSSCOMPILING)
-    # 这段代码块在Ubuntu 桌面编译时运行
-
     # 1. 查找桌面环境需要的库
     find_package(SDL2 REQUIRED)
     find_package(Threads REQUIRED)
