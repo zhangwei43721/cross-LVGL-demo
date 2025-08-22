@@ -7,7 +7,7 @@ set(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/bin)
 include_directories(.) # 包含根目录以找到 lv_conf.h 和 lv_drv_conf.h
 
 # --- 平台检测与配置 ---
-if(CMAKE_CROSSCOMPILING AND (CMAKE_SYSTEM_PROCESSOR MATCHES "arm|aarch64"))
+if(CMAKE_CROSSCOMPILING OR CMAKE_SYSTEM_PROCESSOR MATCHES "arm|aarch64" OR CMAKE_C_COMPILER MATCHES "arm-linux-")
     message(STATUS "目标架构: ARM (交叉编译)")
     set(TARGET_ARCH "arm")
     set(PLATFORM_LIBS pthread) # ARM平台链接pthread

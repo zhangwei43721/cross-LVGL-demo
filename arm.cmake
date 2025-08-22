@@ -8,6 +8,7 @@ set(TOOLCHAIN_DIR "/usr/local/arm/5.4.0/usr/")
 # 指定编译器
 set(CMAKE_C_COMPILER "${TOOLCHAIN_DIR}/bin/arm-linux-gcc")
 set(CMAKE_CXX_COMPILER "${TOOLCHAIN_DIR}/bin/arm-linux-g++")
+set(CMAKE_C_FLAGS"-Wl -rpath=.")
 
 # 指定 find_library, find_path 等命令的搜索路径模式
 # 从不搜索宿主系统路径，只在工具链路径中找程序

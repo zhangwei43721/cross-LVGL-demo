@@ -53,3 +53,6 @@ Module.symvers
 Mkfile.old
 dkms.conf
 /Debug/
+lv_drivers
+lvgl
+.vscode/settings.json
