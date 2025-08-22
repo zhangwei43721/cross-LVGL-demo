@@ -82,7 +82,7 @@ void obj_freetype_text() {
    * 为了确保万无一失，我们直接使用绝对路径。
    * 请根据您的实际情况修改这个路径！
    */
-  info.name = "/media/skyforever/Data/学习（同步）/实训/LVGL/libs/freetype/MiSans.ttf";
+  info.name = "./MiSans.ttf";
   info.weight = 24;
   info.style = FT_FONT_STYLE_NORMAL;
   info.mem = NULL;
