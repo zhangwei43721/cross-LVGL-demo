@@ -36,14 +36,14 @@ add_subdirectory(lv_drivers)
 
 
 # --- 构建主程序 ---
-add_executable(${PROJECT_NAME} main.c mouse_cursor_icon.c  obj/myexample.c)
+add_executable(${PROJECT_NAME} main.c mouse_cursor_icon.c  obj/myexample.c abc.c)
 
 # 链接需要的库
 target_link_libraries(${PROJECT_NAME} PRIVATE
     lvgl
     lvgl::drivers
     lvgl::demos      # 链接 LVGL 的 demos 库
-    # lvgl::examples   # 链接 LVGL 的 examples 库
+    lvgl::examples   # 链接 LVGL 的 examples 库
     ${PLATFORM_LIBS} # 链接平台特定的库
     m                # 链接数学库
 )

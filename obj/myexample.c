@@ -1,4 +1,5 @@
 #include <stdio.h>
+
 #include "head.h"
 
 // 事件回调函数
@@ -60,7 +61,20 @@ void obj_pos1(void) {
   lv_obj_center(btn_label2);  // 将文字标签居中
   lv_obj_add_event_cb(btn2, button_event_handler2, LV_EVENT_CLICKED, label);
 }
+void obj_sjpg_1(void) {
+  // 声明图片数据所在的数组名称
+  LV_IMG_DECLARE(abc);
+  // 创建对象
+  lv_obj_t *img1 = lv_img_create(lv_scr_act());
+  // 加载指定图片
+  lv_img_set_src(img1, &abc);
+}
 
-// 其他函数暂时不动
+void obj_sjpg_2(void) {
+  lv_obj_t *wp;
+  wp = lv_img_create(lv_scr_act());
+  lv_img_set_src(wp, "A:/mnt/nfs/small_image.sjpg");
+}
+
 void obj_pos2(void) {}
 void obj_xx(void) {}

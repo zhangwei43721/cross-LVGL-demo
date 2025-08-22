@@ -19,6 +19,9 @@
 // UI 代码头文件
 #include "obj/head.h"
 
+// 添加对examples的引用
+#include "lvgl/examples/lv_examples.h"
+
 // 根据 lv_drv_conf.h 中的 USE_SDL 宏来包含不同的平台驱动头文件
 #if USE_SDL
     /* ========================= */
@@ -59,7 +62,11 @@ int main(int argc, char **argv)
     hal_init();
 
     /* === 调用 UI 代码 === */
-    obj_pos1();
+    // obj_pos1();
+
+    
+    // obj_sjpg_1();  // 用图片数组显示
+    // obj_sjpg_2();  // 用指定路径显示 
 
     /* 主循环 */
     while(1) {
