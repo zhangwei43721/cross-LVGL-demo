@@ -56,3 +56,5 @@ dkms.conf
 lv_drivers
 lvgl
 .vscode/settings.json
+lv_drivers
+lvgl
