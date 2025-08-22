@@ -67,6 +67,7 @@ int main(int argc, char **argv)
     
     // obj_sjpg_1();  // 用图片数组显示
     // obj_sjpg_2();  // 用指定路径显示 
+    obj_freetype_text();// 显示文字
 
     /* 主循环 */
     while(1) {

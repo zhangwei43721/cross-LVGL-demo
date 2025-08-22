@@ -4,19 +4,19 @@ project(main C)
 # --- 基本设置 ---
 set(CMAKE_C_STANDARD 99)
 set(EXECUTABLE_OUTPUT_PATH ${PROJECT_BINARY_DIR}/bin)
-include_directories(.) # 包含根目录以找到 lv_conf.h 和 lv_drv_conf.h
+include_directories(.) # For lv_conf.h, lv_drv_conf.h
 
 # --- 平台检测与配置 ---
 if(CMAKE_CROSSCOMPILING OR CMAKE_SYSTEM_PROCESSOR MATCHES "arm|aarch64" OR CMAKE_C_COMPILER MATCHES "arm-linux-")
     message(STATUS "目标架构: ARM (交叉编译)")
     set(TARGET_ARCH "arm")
-    set(PLATFORM_LIBS pthread) # ARM平台链接pthread
+    set(PLATFORM_LIBS pthread)
 else()
     message(STATUS "目标架构: PC (本地编译)")
     set(TARGET_ARCH "pc")
     find_package(SDL2 REQUIRED)
     find_package(Threads REQUIRED)
-    set(PLATFORM_LIBS ${SDL2_LIBRARIES} Threads::Threads) # PC平台链接SDL2和pthreads
+    set(PLATFORM_LIBS ${SDL2_LIBRARIES} Threads::Threads)
 endif()
 
 # 运行脚本来修改 lv_drv_conf.h
@@ -31,6 +31,7 @@ endif()
 
 
 # --- 添加子目录 ---
+# 因为头文件已在 /usr/local/include，编译 lvgl 会自动找到
 add_subdirectory(lvgl)
 add_subdirectory(lv_drivers)
 
@@ -38,14 +39,16 @@ add_subdirectory(lv_drivers)
 # --- 构建主程序 ---
 add_executable(${PROJECT_NAME} main.c mouse_cursor_icon.c  obj/myexample.c abc.c)
 
-# 链接需要的库
+# --- 链接库 ---
+# 链接顺序至关重要。
 target_link_libraries(${PROJECT_NAME} PRIVATE
     lvgl
     lvgl::drivers
-    lvgl::demos      # 链接 LVGL 的 demos 库
-    lvgl::examples   # 链接 LVGL 的 examples 库
-    ${PLATFORM_LIBS} # 链接平台特定的库
-    m                # 链接数学库
+    lvgl::demos
+    lvgl::examples
+    ${PLATFORM_LIBS}
+    m
+    # 我们不再需要在这里手动链接 freetype，因为下一步会从 lvgl 传递依赖
 )
 
 # --- 为VSCode创建一个运行目标 ---
