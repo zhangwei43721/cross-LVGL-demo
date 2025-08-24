@@ -58,3 +58,4 @@ lvgl
 .vscode/settings.json
 lv_drivers
 lvgl
+.vscode/tasks.json
