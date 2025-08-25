@@ -9,7 +9,7 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/bin)
 option(LV_BUILD_DEMOS "构建 LVGL demos" OFF)
 option(LV_BUILD_EXAMPLES "构建 LVGL examples" OFF)
 
-include_directories(. libs/freetype/include)
+include_directories(. libs/freetype/include ./UI)
 
 # --- 平台配置 ---
 if(CMAKE_CROSSCOMPILING)
@@ -29,6 +29,7 @@ execute_process(COMMAND bash configure.sh ${TARGET_ARCH} WORKING_DIRECTORY ${CMA
 # --- 构建与链接 ---
 add_subdirectory(lvgl)
 add_subdirectory(lv_drivers)
+add_subdirectory(./UI)
 
 add_executable(${PROJECT_NAME} main.c mouse_cursor_icon.c obj/myexample.c abc.c)
 
@@ -46,4 +47,5 @@ target_link_libraries(${PROJECT_NAME} PRIVATE
     lvgl::drivers
     ${PLATFORM_LIBS}
     ${EXTRA_LIBS}
+    ui
 )

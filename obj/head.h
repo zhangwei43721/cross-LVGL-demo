@@ -16,5 +16,6 @@ void obj_xx(void);
 void obj_sjpg_1(void);
 void obj_sjpg_2(void);
 void obj_freetype_text(void);
+void lv_flex_test(void);
 
 #endif /* __HEAD_H__ */

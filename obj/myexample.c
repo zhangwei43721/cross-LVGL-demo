@@ -77,11 +77,6 @@ void obj_sjpg_2(void) {
 }
 void obj_freetype_text() {
   static lv_ft_info_t info;
-  /* 
-   * 修复 1: 使用绝对路径或者正确的相对路径。
-   * 为了确保万无一失，我们直接使用绝对路径。
-   * 请根据您的实际情况修改这个路径！
-   */
   info.name = "./MiSans.ttf";
   info.weight = 24;
   info.style = FT_FONT_STYLE_NORMAL;
@@ -89,7 +84,7 @@ void obj_freetype_text() {
 
   if (!lv_ft_font_init(&info)) {
     LV_LOG_ERROR("create failed.");
-    return; 
+    return;
   }
 
   static lv_style_t style;
@@ -102,5 +97,77 @@ void obj_freetype_text() {
   lv_label_set_text(label, "你好\nI'm a font created with FreeType");
   lv_obj_center(label);
 }
+
+void lv_flex_test(void) {
+  static lv_ft_info_t info;
+  info.name = "./MiSans.ttf";
+  info.weight = 14;
+  info.style = FT_FONT_STYLE_NORMAL;
+  info.mem = NULL;
+
+  if (!lv_ft_font_init(&info)) {
+    LV_LOG_ERROR("create failed.");
+    return;
+  }
+
+  /*Create a container with ROW flex direction*/
+  lv_obj_t *cont_row = lv_obj_create(lv_scr_act());
+  lv_obj_set_size(cont_row, 300, 75);
+  lv_obj_align(cont_row, LV_ALIGN_TOP_MID, 0, 5);
+  lv_obj_set_flex_flow(cont_row, LV_FLEX_FLOW_ROW);
+
+  /*Create a container with COLUMN flex direction*/
+  lv_obj_t *cont_col = lv_obj_create(lv_scr_act());
+  lv_obj_set_size(cont_col, 200, 150);
+  lv_obj_align_to(cont_col, cont_row, LV_ALIGN_OUT_BOTTOM_MID, 0, 5);
+  lv_obj_set_flex_flow(cont_col, LV_FLEX_FLOW_COLUMN);
+
+  uint32_t i;
+  for (i = 0; i < 10; i++) {
+    lv_obj_t *obj;
+    lv_obj_t *label;
+
+    /*Add items to the row*/
+    obj = lv_btn_create(cont_row);
+    lv_obj_set_size(obj, 100, LV_PCT(100));
+
+    label = lv_label_create(obj);
+    lv_obj_set_style_text_font(label, info.font, 0);
+    lv_label_set_text_fmt(label, "项目: %u", i);
+    lv_obj_center(label);
+
+    if (i == 5) {
+      /* Create a container for the two buttons */
+      lv_obj_t *btn_container = lv_obj_create(cont_col);
+      lv_obj_set_size(btn_container, LV_PCT(100), LV_SIZE_CONTENT);
+      lv_obj_set_flex_flow(btn_container, LV_FLEX_FLOW_ROW);
+
+      /* First button */
+      obj = lv_btn_create(btn_container);
+      lv_obj_set_size(obj, LV_PCT(50), LV_SIZE_CONTENT);
+      label = lv_label_create(obj);
+      lv_obj_set_style_text_font(label, info.font, 0);
+      lv_label_set_text_fmt(label, "项目: %" LV_PRIu32 "-1", i);
+      lv_obj_center(label);
+
+      /* Second button */
+      obj = lv_btn_create(btn_container);
+      lv_obj_set_size(obj, LV_PCT(50), LV_SIZE_CONTENT);
+      label = lv_label_create(obj);
+      lv_obj_set_style_text_font(label, info.font, 0);
+      lv_label_set_text_fmt(label, "项目: %" LV_PRIu32 "-2", i);
+      lv_obj_center(label);
+    } else {
+      obj = lv_btn_create(cont_col);
+      lv_obj_set_size(obj, LV_PCT(100), LV_SIZE_CONTENT);
+
+      label = lv_label_create(obj);
+      lv_obj_set_style_text_font(label, info.font, 0);
+      lv_label_set_text_fmt(label, "项目: %" LV_PRIu32, i);
+      lv_obj_center(label);
+    }
+  }
+}
+
 void obj_pos2(void) {}
 void obj_xx(void) {}
