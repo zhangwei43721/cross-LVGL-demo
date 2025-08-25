@@ -3,14 +3,14 @@
 // LVGL version: 8.3.11
 // Project name: Login
 
-#ifndef _UI_EVENTS_H
-#define _UI_EVENTS_H
+#ifndef _LOGIN_UI_COMP_HOOK_H
+#define _LOGIN_UI_COMP_HOOK_H
 
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-void EventCallBack_login(lv_event_t * e);
+void ui_comp_rfidContainer_create_hook(lv_obj_t * comp);
 
 #ifdef __cplusplus
 } /*extern "C"*/
