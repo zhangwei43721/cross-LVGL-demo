@@ -7,7 +7,6 @@
 *.obj
 *.elf
 /build/
-/bin/
 
 # Linker output
 *.ilk
@@ -53,9 +52,9 @@ Module.symvers
 Mkfile.old
 dkms.conf
 /Debug/
-lv_drivers
-lvgl
+
+# IDE configs
 .vscode/settings.json
-lv_drivers
-lvgl
 .vscode/tasks.json
+
+main
