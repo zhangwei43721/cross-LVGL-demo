@@ -18,7 +18,7 @@
 
 // UI 代码头文件
 #include "obj/head.h"
-#include "UI/ui.h"
+// #include "UI/ui.h"
 
 // 添加对examples的引用
 #include "lvgl/examples/lv_examples.h"
@@ -64,12 +64,12 @@ int main(int argc, char **argv)
 
     /* === 调用 UI 代码 === */
     // obj_pos1();
-    ui_init();
+    // ui_init();
 
     
     // obj_sjpg_1();  // 用图片数组显示
     // obj_sjpg_2();  // 用指定路径显示 
-    // obj_freetype_text();// 显示文字
+    obj_freetype_text();// 显示文字
     // lv_flex_test();   // 布局测试
     /* 主循环 */
     while(1) {

@@ -9,25 +9,12 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/bin)
 set(TARGET_PLATFORM "unknown")
 
 if(CMAKE_CROSSCOMPILING)
-    # 交叉编译，认定为 ARM 平台
+    # ARM 平台
     set(TARGET_PLATFORM "arm")
-
-    # 为 ARM 平台显式指定 Freetype 库
-    # 1. 创建一个 IMPORTED 库目标，它代表我们项目内部的 freetype 库
-    #    注意：请根据你的实际文件选择 SHARED (用于 .so 文件) 或 STATIC (用于 .a 文件)
     add_library(freetype_local SHARED IMPORTED GLOBAL)
-
-    # 2. 设置这个目标的具体文件路径
-    #    注意：请检查你的 libs/freetype/lib/arm/ 目录下到底是 .so 文件还是 .a 文件，并使用正确的文件名！
     set_target_properties(freetype_local PROPERTIES
         IMPORTED_LOCATION "${CMAKE_CURRENT_SOURCE_DIR}/libs/freetype/lib/arm/libfreetype.so"
     )
-    # 如果是静态库，请使用下面这行代替：
-    # set_target_properties(freetype_local PROPERTIES
-    #     IMPORTED_LOCATION "${CMAKE_CURRENT_SOURCE_DIR}/libs/freetype/lib/arm/libfreetype.a"
-    # )
-
-    # 3. 将我们创建的 freetype_local 目标加入到链接列表
     set(PLATFORM_LIBS pthread freetype_local m)
 
 elseif(WIN32)
@@ -81,7 +68,7 @@ include_directories(
     UI
     lvgl
     lv_drivers
-    # lv_demos 
+    # lv_demos
     # lv_examples
 )
 
@@ -92,7 +79,7 @@ file(GLOB_RECURSE ALL_SOURCES
     # "lvgl/demos/*.c" 
     # "lvgl/examples/*.c" 
     "UI/*.c"
-    # "obj/*.c"
+    "obj/*.c"
 )
 
 # --- 构建主程序 ---
