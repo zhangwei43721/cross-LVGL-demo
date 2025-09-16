@@ -35,8 +35,8 @@ include_directories(
 file(GLOB_RECURSE ALL_SOURCES
     "lvgl/src/*.c" 
     "lv_drivers/*.c"
-    "lvgl/demos/*.c" 
-    "lvgl/examples/*.c" 
+    # "lvgl/demos/*.c" 
+    # "lvgl/examples/*.c" 
     "UI/*.c"
 )
 
