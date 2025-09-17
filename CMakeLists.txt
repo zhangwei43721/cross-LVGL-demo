@@ -9,11 +9,10 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/bin)
 set(TARGET_PLATFORM "unknown")
 
 if(CMAKE_CROSSCOMPILING)
-    # ARM 平台
     set(TARGET_PLATFORM "arm")
-    add_library(freetype_local SHARED IMPORTED GLOBAL)
+    add_library(freetype_local STATIC IMPORTED GLOBAL)
     set_target_properties(freetype_local PROPERTIES
-        IMPORTED_LOCATION "${CMAKE_CURRENT_SOURCE_DIR}/libs/freetype/lib/arm/libfreetype.so"
+        IMPORTED_LOCATION "${CMAKE_CURRENT_SOURCE_DIR}/libs/freetype/lib/arm/libfreetype.a"
     )
     set(PLATFORM_LIBS pthread freetype_local m)
 
@@ -36,7 +35,8 @@ elseif(UNIX AND NOT APPLE)
     set(TARGET_PLATFORM "pc")
     find_package(SDL2 REQUIRED)
     find_package(Threads REQUIRED)
-    set(PLATFORM_LIBS SDL2::SDL2 Threads::Threads freetype m)
+    find_package(Freetype REQUIRED) # 在 PC 上我们查找系统的 FreeType
+    set(PLATFORM_LIBS SDL2::SDL2 Threads::Threads Freetype::Freetype m)
 else()
     message(FATAL_ERROR "不支持的平台或操作系统！")
 endif()
