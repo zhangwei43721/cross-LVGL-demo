@@ -61,16 +61,25 @@ int main(int argc, char **argv)
 
     /* 初始化 HAL (显示, 输入设备, tick) */
     hal_init();
-
-    /* === 调用 UI 代码 === */
-    // obj_pos1();
-    // ui_init();
-
+    // --- 示例代码 --- 
+    // --- 对象与坐标 ---
+    // demo_create_basic_objects();
+    // demo_set_position_and_size();
     
-    // obj_sjpg_1();  // 用图片数组显示
-    // obj_sjpg_2();  // 用指定路径显示 
-    obj_freetype_text();// 显示文字
-    // lv_flex_test();   // 布局测试
+    // --- 样式 ---
+    // demo_create_and_apply_style();
+
+    // --- 事件 ---
+    // demo_add_event_handler();
+    // demo_event_bubbling();
+
+    // --- 其他功能 ---
+    // demo_sjpg_from_array(); // 用数组显示 SJPG 图片
+    // demo_sjpg_from_file();  // 用文件系统显示 SJPG 图片
+    // demo_freetype_text();   // 用 FreeType 显示中文文本
+    // demo_flex_layout();     // 使用 Flexbox 布局
+
+
     /* 主循环 */
     while(1) {
         lv_timer_handler();

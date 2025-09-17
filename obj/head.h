@@ -4,18 +4,22 @@
 #include <stdio.h>
 #include <unistd.h>
 
-// #include "lv_png.h"
 #define SDL_MAIN_HANDLED
 #include "lv_drivers/sdl/sdl.h"
-#include "lvgl/demos/lv_demos.h"
-#include "lvgl/examples/lv_examples.h"
 #include "lvgl/lvgl.h"
 
-void obj_pos1(void);
-void obj_xx(void);
-void obj_sjpg_1(void);
-void obj_sjpg_2(void);
-void obj_freetype_text(void);
-void lv_flex_test(void);
+// 对象、坐标、样式、事件演示
+void demo_create_basic_objects(void);
+void demo_set_position_and_size(void);
+void demo_create_and_apply_style(void);
+void demo_add_event_handler(void);
+void demo_event_bubbling(void);
+
+// 其他功能演示
+void demo_sjpg_from_array(void);
+void demo_sjpg_from_file(void);
+void demo_freetype_text(void);
+void demo_flex_layout(void);
+
 
 #endif /* __HEAD_H__ */
