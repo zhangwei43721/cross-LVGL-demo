@@ -76,7 +76,7 @@ int main(int argc, char **argv)
     // --- 其他功能 ---
     // demo_sjpg_from_array(); // 用数组显示 SJPG 图片
     // demo_sjpg_from_file();  // 用文件系统显示 SJPG 图片
-    // demo_freetype_text();   // 用 FreeType 显示中文文本
+    demo_freetype_text();   // 用 FreeType 显示中文文本
     // demo_flex_layout();     // 使用 Flexbox 布局
 
 

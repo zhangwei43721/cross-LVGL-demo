@@ -20,35 +20,16 @@ if(CMAKE_CROSSCOMPILING)
 elseif(WIN32)
     # Windows 平台
     set(TARGET_PLATFORM "win")
-
-    # --- 更健壮的 SDL2 配置 (适用于 MinGW-w64) ---
     set(SDL2_DIR "${CMAKE_SOURCE_DIR}/libs/SDL2")
-
-    # 包含头文件目录
-    include_directories("${SDL2_DIR}/include")
-
-    # 创建一个 IMPORTED 库目标来代表 SDL2
-    add_library(SDL2::SDL2 SHARED IMPORTED GLOBAL)
-    
-    # 修正路径：移除 x86_64-w64-mingw32 子目录
-    set_target_properties(SDL2::SDL2 PROPERTIES
-        IMPORTED_LOCATION "${SDL2_DIR}/bin/SDL2.dll"
-        IMPORTED_IMPLIB "${SDL2_DIR}/lib/libSDL2.dll.a" 
-        INTERFACE_INCLUDE_DIRECTORIES "${SDL2_DIR}/include"
+    set(FREETYPE_DIR "${CMAKE_SOURCE_DIR}/libs/freetype")
+    set(PLATFORM_LIBS
+        "${SDL2_DIR}/lib/libSDL2main.a"
+        "${SDL2_DIR}/lib/libSDL2.a"
+        "${FREETYPE_DIR}/lib/win32/libfreetype.a"
+        -mwindows gdi32 winmm imm32 ole32
+        oleaut32 shell32 version uuid user32
+        setupapi cfgmgr32
     )
-
-    # 创建一个 IMPORTED 库目标来代表 SDL2main
-    add_library(SDL2::main STATIC IMPORTED GLOBAL)
-
-    # 修正路径：移除 x86_64-w64-mingw32 子目录
-    set_target_properties(SDL2::main PROPERTIES
-        IMPORTED_LOCATION "${SDL2_DIR}/lib/libSDL2main.a"
-        INTERFACE_INCLUDE_DIRECTORIES "${SDL2_DIR}/include"
-    )
-
-    # 链接库
-    set(PLATFORM_LIBS SDL2::main SDL2::SDL2 freetype m)
-
 
 elseif(UNIX AND NOT APPLE)
     # Linux PC 平台
@@ -86,9 +67,10 @@ file(WRITE ${LV_DRV_CONF_PATH} "${LV_DRV_CONF_CONTENT}")
 file(WRITE ${LV_CONF_PATH} "${LV_CONF_CONTENT}")
 message(STATUS "配置文件修改完成。")
 
-
+# --- 头文件目录 ---
 include_directories(
     .
+    libs/SDL2/include
     libs/freetype/include
     UI
     lvgl
