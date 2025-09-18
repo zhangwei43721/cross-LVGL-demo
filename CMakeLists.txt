@@ -1,6 +1,19 @@
 cmake_minimum_required(VERSION 3.5)
 project(main C)
 
+if(WIN32)
+    set(PROJECT_PATH "${PROJECT_SOURCE_DIR}")
+    string(REGEX MATCH "[^A-Za-z0-9_:/\\\\. -]" INVALID_CHAR_DETECTED "${PROJECT_PATH}")
+    if(INVALID_CHAR_DETECTED)
+        message(FATAL_ERROR "
+    错误：检测到项目路径中包含中文或非英文字符！
+    当前项目路径: ${PROJECT_PATH}
+    请将整个项目文件夹移动到一个纯英文的路径下
+    例如： C:/dev/cross-lvgl-demo
+    或者注释掉这个if块，看看是否不会编译出错") 
+    endif()
+endif()
+
 set(CMAKE_C_STANDARD 99)
 set(CMAKE_C_STANDARD_REQUIRED ON)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/bin)
