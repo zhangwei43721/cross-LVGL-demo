@@ -10,7 +10,7 @@
 ### 环境依赖
 
 *   **通用**：
-    *   `cmake` (>= 3.12)
+    *   `cmake` (>= 3.10)
     *   C 编译器 (GCC, MinGW, MSVC等)
 *   **Windows 平台**：
     *   **MinGW-w64**

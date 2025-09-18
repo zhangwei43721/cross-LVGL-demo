@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.12)
+cmake_minimum_required(VERSION 3.5)
 project(main C)
 
 set(CMAKE_C_STANDARD 99)
@@ -35,7 +35,7 @@ elseif(UNIX AND NOT APPLE)
     set(TARGET_PLATFORM "pc")
     find_package(SDL2 REQUIRED)
     find_package(Threads REQUIRED)
-    find_package(Freetype REQUIRED) # 在 PC 上我们查找系统的 FreeType
+    find_package(Freetype REQUIRED)
     set(PLATFORM_LIBS SDL2::SDL2 Threads::Threads Freetype::Freetype m)
 else()
     message(FATAL_ERROR "不支持的平台或操作系统！")
