@@ -22,6 +22,18 @@
 *   **ARM 平台**：
     *   ARM 交叉编译工具链 (例如 `arm-linux-gcc`)
 
+> [!WARNING]
+>
+> Windows 系统最好吧此项目放到非中文路径下，不然gcc会报错说找不到路径
+>
+> 或者考虑临时修改控制台编码：
+>
+> ```bash
+> chcp 65001
+> ```
+>
+> 如果要永久修改windows控制台编码，则自行搜索方法
+
 ### 编译步骤
 
 #### **图形界面 (VSCode)**：
@@ -38,7 +50,7 @@
     ```
 2.  **运行 CMake 配置** (以 MinGW 为例)，并指定 SDL2 库的路径：
     ```bash
-    cmake .. -G "MinGW Makefiles" -DSDL2_DIR="C:/path/to/SDL2_dev_lib"
+    cmake .. -G "MinGW Makefiles"
     ```
 3.  **编译**:
     ```bash
